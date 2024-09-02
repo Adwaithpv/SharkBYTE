@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drug Inventory Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+    <link rel="stylesheet" href="./invstyle.css" />
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="logo.png" alt="Logo" />
+                    <h2>MEDZON<span class="danger"></span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp"> close </span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="index.html">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#" class="active">
+                    <span class="material-icons-sharp"> dataset </span>
+                    <h3>Inventory</h3>
+                </a>
+                <a href="orderss.html">
+                    <span class="material-icons-sharp"> receipt_long </span>
+                    <h3>Orders</h3>
+                </a>
+                <a href="reports.html">
+                    <span class="material-icons-sharp"> insights </span>
+                    <h3>Reports</h3>
+                </a>
+                <a href="notifications.html">
+                    <span class="material-icons-sharp"> mail_outline </span>
+                    <h3>Notifications</h3>
+                </a>
+                <a href="mscbot-main/index.html">
+                    <span class="material-icons-sharp"> messenger </span>
+                    <h3>Chat-bot</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <h1>Inventory</h1>
+            <div class="insights">
+                <div class="sales">
+                    <span class="material-icons-sharp"> analytics </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Stock</h3>
+                            <h1>-</h1>
+                        </div>
+                        <div class="progress">
+                            <svg></svg>
+                            <div class="number"></div>
+                        </div>
+                    </div>
+                    <small class="text-muted"> </small>
+                </div>
+                <div class="expenses">
+                    <span class="material-icons-sharp"> bar_chart </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Low Stock</h3>
+                            <h1>-</h1>
+                        </div>
+                        <div class="progress">
+                            <svg></svg>
+                            <div class="number"></div>
+                        </div>
+                    </div>
+                    <small class="text-muted"></small>
+                </div>
+                <div class="income">
+                    <span class="material-icons-sharp"> stacked_line_chart </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>No Stock</h3>
+                            <h1>-</h1>
+                        </div>
+                        <div class="progress">
+                            <svg></svg>
+                            <div class="number"></div>
+                        </div>
+                    </div>
+                    <small class="text-muted"></small>
+                </div>
+            </div>
+            <div class="recent-orders">
+                <h2>Products</h2>
+                <table id="recent-orders--table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Product Number</th>
+                            <th>Stock</th>
+                            <th>Expiry</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--JS insertion -->
+                    </tbody>
+                </table>
+                <a href="products.csv">Show All</a>
+            </div>
+        </main>
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp"> menu </span>
+                </button>
+                <div class="profile">
+                    <div class="info">
+                        <p><b>Admin</b></p>
+                        <small class="text-muted">name</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="./images/profile-1.png" alt="Profile Picture" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./invindex.js"></script>
+    <script src="./load-csv.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+﻿element ,amount,threshold
+sh,4,10
+Bananas,8,15
+Oranges,12,10
+Milk,4,5
+Bread,15,10
+Water,7,12
+Cheese,18,15
+Butter,5,7
+Juice,25,20
+Yoghurt,9,10

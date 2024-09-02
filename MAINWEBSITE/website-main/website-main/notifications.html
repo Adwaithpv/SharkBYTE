@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drug Inventory Dashboard</title>
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./notifications.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside>
+        <div class="top">
+          <div class="logo">
+            <img src="logo.png" alt="Logo" />
+            <h2>MEDIZON<span class="danger"></span></h2>
+          </div>
+          <div class="close" id="close-btn">
+            <span class="material-icons-sharp"> close </span>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <a href="index.html">
+            <span class="material-icons-sharp"> dashboard </span>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="inventory.html">
+            <span class="material-icons-sharp"> dataset </span>
+            <h3>Inventory</h3>
+          </a>
+          <a href="orderss.html">
+            <span class="material-icons-sharp"> receipt_long </span>
+            <h3>Orders</h3>
+          </a>
+          <a href="reports.html">
+            <span class="material-icons-sharp"> insights </span>
+            <h3>Reports</h3>
+          </a>
+          <a href="notifications.html"class="active">
+            <span class="material-icons-sharp"> mail_outline </span>
+            <h3>Notifications</h3>
+          </a>
+          <a href="mscbot-main/index.html">
+            <span class="material-icons-sharp"> messenger </span>
+            <h3>Chat-Bot</h3>
+          </a>
+          <a href="#">
+            <span class="material-icons-sharp"> settings </span>
+            <h3>Settings</h3>
+          </a>
+          <a href="#">
+            <span class="material-icons-sharp"> logout </span>
+            <h3>Logout</h3>
+          </a>
+        </div>
+      </aside>
+
+      <main>
+        <h1></h1><div class="container2">
+    <h1>Notifications</h1> <!-- Page Title -->
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <!-- <input type="file" id="fileInput" accept=".csv"> -->
+            <!-- <button id="showNotifications">Show Notifications</button> -->
+            <button id="clearNotificationLog">Clear Notifications</button>
+        </div>
+
+        <!-- Notification Section -->
+        <div id="notification" class="notification">
+            <div id="message"></div>
+            <button class="close-btn" onclick="closeNotification()">✖</button>
+        </div>
+
+        <!-- Log Section -->
+        <div id="notification-log" class="notification-log">
+            <h3>Current Notifications</h3>
+            <ul id="log-list"></ul>
+        </div>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
