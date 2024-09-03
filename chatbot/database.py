@@ -1,12 +1,13 @@
 import firebase_admin
-from firebase_admin import credentials, firestore  # or from firebase_admin import db for Realtime Database
-
+from firebase_admin import credentials, db  # or from firebase_admin import db for Realtime Database
+import json
 # Initialize the Firebase Admin SDK
-cred = credentials.Certificate("D:\SIH\SharkBYTE\chatbot\chtabot-805ef-firebase-adminsdk-5jhl5-cc019f9623.json")
-firebase_admin.initialize_app(cred)
+cred = credentials.Certificate("D:/SIH/SharkBYTE/chatbot/credentials.json")
+firebase_admin.initialize_app(cred,{"databaseURL": "https://chtabot-805ef-default-rtdb.asia-southeast1.firebasedatabase.app/"})
 
 # Initialize Firestore DB (or use db for Realtime Database)
-db = firestore.client()
+ref=db.reference("/")
+#db = firestore.client()
 # Sample dataset
 medicine_data = [
   {
@@ -36,8 +37,19 @@ medicine_data = [
 ]
 
 # Adding data to Firestore
-for medicine in medicine_data:
-    # Each medicine is stored with its name as the document ID
-    doc_ref = db.collection('medicines').document(medicine['medicine_name'])
-    doc_ref.set(medicine)
+def add_data():
+    for medicine in medicine_data:
+        # Each medicine is stored with its name as the document ID
+        doc_ref = db.reference(f'medicines/{medicine["medicine_name"]}')
+        doc_ref.set(medicine)
+
+def get_data():
+    # Fetching data from Firestore
+        doc_ref = db.reference('medicines')
+        medicines = doc_ref.get()
+        return json.dumps(medicines, indent=4)
+        
+print(get_data())
+
+    
 
