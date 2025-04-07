@@ -14,17 +14,16 @@ def model():
     )
     return llm
   
-medicine_info=database.get_data()
+
 
 # Define the function to process the query
 def infer_from_rag(query: str):
     modell = model()
 
     pre_prompt = """
-    ### You are a drug inventory assistant. Answer the query using the data provided in the JSON format. If there is no answer, respond that the question is out of context ###
-    {{medicine_info}}
+    ### You are a sentence prediction bot.Based on the sentence provided , auto-fill the sentence using the right words. ###
 
-    Here is the query: {question}
+    Here is the sentence: {question}
     """
 
     prompt = PromptTemplate(
@@ -37,14 +36,14 @@ def infer_from_rag(query: str):
     return res
 
 # Streamlit UI
-st.title("MediBOT: Your Medicine Inventory Assistant")
+st.title("Auto-fill bot")
 
 # Display chat interface
 if "history" not in st.session_state:
     st.session_state.history = []
 
 # User input
-user_input = st.text_input("Ask a question:")
+user_input = st.text_input("Send a Sentence:")
 
 if st.button("Send"):
     if user_input:
