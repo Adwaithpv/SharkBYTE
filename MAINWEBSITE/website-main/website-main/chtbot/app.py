@@ -3,7 +3,7 @@ import google.generativeai as genai
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import PromptTemplate
-import database
+from chtbot import database
 from langchain_google_genai import GoogleGenerativeAI
 
 # Define the model function

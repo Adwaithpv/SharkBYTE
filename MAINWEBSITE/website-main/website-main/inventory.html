@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Drug Inventory Dashboard</title>
+    <title>Inventory Management - Medizon</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
-    <link rel="stylesheet" href="./invstyle.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./chat.css" />
 </head>
 <body>
     <div class="container">
@@ -14,130 +15,147 @@
             <div class="top">
                 <div class="logo">
                     <img src="logo.png" alt="Logo" />
-                    <h2>MEDZON<span class="danger"></span></h2>
-                </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp"> close </span>
+                    <h2>Medi<span class="primary">zon</span></h2>
                 </div>
             </div>
+
             <div class="sidebar">
                 <a href="index.html">
-                    <span class="material-icons-sharp"> dashboard </span>
+                    <span class="material-icons-sharp">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="#" class="active">
-                    <span class="material-icons-sharp"> dataset </span>
+                <a href="inventory.html" class="active">
+                    <span class="material-icons-sharp">inventory</span>
                     <h3>Inventory</h3>
                 </a>
                 <a href="orderss.html">
-                    <span class="material-icons-sharp"> receipt_long </span>
+                    <span class="material-icons-sharp">receipt_long</span>
                     <h3>Orders</h3>
                 </a>
                 <a href="reports.html">
-                    <span class="material-icons-sharp"> insights </span>
+                    <span class="material-icons-sharp">analytics</span>
                     <h3>Reports</h3>
                 </a>
                 <a href="notifications.html">
-                    <span class="material-icons-sharp"> mail_outline </span>
-                    <h3>Notifications</h3>
-                </a>
-                <a href="mscbot-main/index.html">
-                    <span class="material-icons-sharp"> messenger </span>
-                    <h3>Chat-bot</h3>
+                    <span class="material-icons-sharp">notifications</span>
+                    <h3>Alerts</h3>
                 </a>
                 <a href="#">
-                    <span class="material-icons-sharp"> settings </span>
+                    <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>
                 <a href="#">
-                    <span class="material-icons-sharp"> logout </span>
+                    <span class="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
             </div>
         </aside>
+
         <main>
-            <h1>Inventory</h1>
-            <div class="insights">
-                <div class="sales">
-                    <span class="material-icons-sharp"> analytics </span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Total Stock</h3>
-                            <h1>-</h1>
-                        </div>
-                        <div class="progress">
-                            <svg></svg>
-                            <div class="number"></div>
-                        </div>
-                    </div>
-                    <small class="text-muted"> </small>
-                </div>
-                <div class="expenses">
-                    <span class="material-icons-sharp"> bar_chart </span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Low Stock</h3>
-                            <h1>-</h1>
-                        </div>
-                        <div class="progress">
-                            <svg></svg>
-                            <div class="number"></div>
-                        </div>
-                    </div>
-                    <small class="text-muted"></small>
-                </div>
-                <div class="income">
-                    <span class="material-icons-sharp"> stacked_line_chart </span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>No Stock</h3>
-                            <h1>-</h1>
-                        </div>
-                        <div class="progress">
-                            <svg></svg>
-                            <div class="number"></div>
-                        </div>
-                    </div>
-                    <small class="text-muted"></small>
+            <div class="top-bar">
+                <h1>Inventory Management</h1>
+                <div class="actions">
+                    <button class="btn btn-primary">
+                        <span class="material-icons-sharp">add</span>
+                        Add New Item
+                    </button>
+                    <button class="btn">
+                        <span class="material-icons-sharp">download</span>
+                        Export
+                    </button>
                 </div>
             </div>
-            <div class="recent-orders">
-                <h2>Products</h2>
-                <table id="recent-orders--table">
+
+            <div class="filters card">
+                <div class="search">
+                    <span class="material-icons-sharp">search</span>
+                    <input type="text" placeholder="Search inventory...">
+                </div>
+                <div class="filter-options">
+                    <select>
+                        <option value="">All Categories</option>
+                        <option value="medicine">Medicine</option>
+                        <option value="equipment">Equipment</option>
+                        <option value="supplies">Supplies</option>
+                    </select>
+                    <select>
+                        <option value="">All Status</option>
+                        <option value="in-stock">In Stock</option>
+                        <option value="low-stock">Low Stock</option>
+                        <option value="out-of-stock">Out of Stock</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inventory-table card">
+                <table>
                     <thead>
                         <tr>
-                            <th>Product Name</th>
-                            <th>Product Number</th>
-                            <th>Stock</th>
-                            <th>Expiry</th>
-                            <th></th>
+                            <th>Item ID</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!--JS insertion -->
+                        <tr>
+                            <td>#MED-001</td>
+                            <td>Paracetamol 500mg</td>
+                            <td>Medicine</td>
+                            <td>1,234</td>
+                            <td>A-12-3</td>
+                            <td class="success">In Stock</td>
+                            <td>
+                                <button class="btn-icon">
+                                    <span class="material-icons-sharp">edit</span>
+                                </button>
+                                <button class="btn-icon">
+                                    <span class="material-icons-sharp">delete</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#MED-002</td>
+                            <td>Ibuprofen 200mg</td>
+                            <td>Medicine</td>
+                            <td>45</td>
+                            <td>B-05-2</td>
+                            <td class="warning">Low Stock</td>
+                            <td>
+                                <button class="btn-icon">
+                                    <span class="material-icons-sharp">edit</span>
+                                </button>
+                                <button class="btn-icon">
+                                    <span class="material-icons-sharp">delete</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#MED-003</td>
+                            <td>Amoxicillin 250mg</td>
+                            <td>Medicine</td>
+                            <td>0</td>
+                            <td>C-08-1</td>
+                            <td class="danger">Out of Stock</td>
+                            <td>
+                                <button class="btn-icon">
+                                    <span class="material-icons-sharp">edit</span>
+                                </button>
+                                <button class="btn-icon">
+                                    <span class="material-icons-sharp">delete</span>
+                                </button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-                <a href="products.csv">Show All</a>
             </div>
         </main>
-        <div class="right">
-            <div class="top">
-                <button id="menu-btn">
-                    <span class="material-icons-sharp"> menu </span>
-                </button>
-                <div class="profile">
-                    <div class="info">
-                        <p><b>Admin</b></p>
-                        <small class="text-muted">name</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="./images/profile-1.png" alt="Profile Picture" />
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    <script src="./invindex.js"></script>
-    <script src="./load-csv.js"></script>
+
+    <script src="./index.js"></script>
+    <script src="./chat.js"></script>
 </body>
 </html>

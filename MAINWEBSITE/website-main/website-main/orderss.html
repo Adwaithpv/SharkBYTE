@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Drug Inventory Dashboard</title>
+    <title>Order Management - Medizon</title>
 
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./chat.css" />
   </head>
   <body>
     <div class="container">
@@ -18,10 +19,7 @@
         <div class="top">
           <div class="logo">
             <img src="logo.png" alt="Logo" />
-            <h2>MEDIZON<span class="danger"></span></h2>
-          </div>
-          <div class="close" id="close-btn">
-            <span class="material-icons-sharp"> close </span>
+            <h2>Medi<span class="primary">zon</span></h2>
           </div>
         </div>
 
@@ -31,24 +29,20 @@
             <h3>Dashboard</h3>
           </a>
           <a href="inventory.html">
-            <span class="material-icons-sharp"> dataset </span>
+            <span class="material-icons-sharp"> inventory </span>
             <h3>Inventory</h3>
           </a>
-          <a href="#" class="active">
+          <a href="orderss.html" class="active">
             <span class="material-icons-sharp"> receipt_long </span>
             <h3>Orders</h3>
           </a>
           <a href="reports.html">
-            <span class="material-icons-sharp"> insights </span>
+            <span class="material-icons-sharp"> analytics </span>
             <h3>Reports</h3>
           </a>
           <a href="notifications.html">
-            <span class="material-icons-sharp"> mail_outline </span>
-            <h3>Notifications</h3>
-          </a>
-          <a href="https://www.google.com/">
-            <span class="material-icons-sharp"> messenger </span>
-            <h3>Chat-Bot</h3>
+            <span class="material-icons-sharp"> notifications </span>
+            <h3>Alerts</h3>
           </a>
           <a href="#">
             <span class="material-icons-sharp"> settings </span>
@@ -62,46 +56,112 @@
       </aside>
 
       <main>
-        <h1>Orders</h1>
+        <div class="top-bar">
+          <h1>Order Management</h1>
+          <div class="actions">
+            <button class="btn btn-primary">
+              <span class="material-icons-sharp"> add </span>
+              New Order
+            </button>
+            <button class="btn">
+              <span class="material-icons-sharp"> download </span>
+              Export
+            </button>
+          </div>
+        </div>
 
-        <div class="recent-orders">
-          <h2>Status</h2>
-          <table id="recent-orders--table">
+        <div class="filters card">
+          <div class="search">
+            <span class="material-icons-sharp"> search </span>
+            <input type="text" placeholder="Search orders...">
+          </div>
+          <div class="filter-options">
+            <select>
+              <option value="">All Status</option>
+              <option value="pending">Pending</option>
+              <option value="processing">Processing</option>
+              <option value="completed">Completed</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+            <select>
+              <option value="">All Time</option>
+              <option value="today">Today</option>
+              <option value="week">This Week</option>
+              <option value="month">This Month</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="orders-table card">
+          <table>
             <thead>
               <tr>
-                <th>Organisation</th>
-                <th>Order Number</th>
-                <th>Delivery Progress</th>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Date</th>
                 <th>Status</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              <!-- JS insertion -->
+              <tr>
+                <td>#ORD-001</td>
+                <td>John Doe</td>
+                <td>5 items</td>
+                <td>$1,234.00</td>
+                <td>2024-04-12</td>
+                <td class="success">Completed</td>
+                <td>
+                  <button class="btn-icon">
+                    <span class="material-icons-sharp"> visibility </span>
+                  </button>
+                  <button class="btn-icon">
+                    <span class="material-icons-sharp"> edit </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#ORD-002</td>
+                <td>Jane Smith</td>
+                <td>3 items</td>
+                <td>$567.00</td>
+                <td>2024-04-12</td>
+                <td class="warning">Processing</td>
+                <td>
+                  <button class="btn-icon">
+                    <span class="material-icons-sharp"> visibility </span>
+                  </button>
+                  <button class="btn-icon">
+                    <span class="material-icons-sharp"> edit </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#ORD-003</td>
+                <td>Mike Johnson</td>
+                <td>2 items</td>
+                <td>$345.00</td>
+                <td>2024-04-11</td>
+                <td class="danger">Pending</td>
+                <td>
+                  <button class="btn-icon">
+                    <span class="material-icons-sharp"> visibility </span>
+                  </button>
+                  <button class="btn-icon">
+                    <span class="material-icons-sharp"> edit </span>
+                  </button>
+                </td>
+              </tr>
             </tbody>
           </table>
-          <a href="sample.xlsx">Show All</a>
         </div>
       </main>
-
-      <div class="right">
-        <div class="top">
-          <button id="menu-btn">
-            <span class="material-icons-sharp"> menu </span>
-          </button>
-          <div class="profile">
-            <div class="info">
-              <p> <b>Admin</b></p>
-              <small class="text-muted">name</small>
-            </div>
-            <div class="profile-photo">
-              <img src="./images/profile-1.png" alt="Profile Picture" />
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <script src="./parse-orders.js"></script>
+    <script src="./index.js"></script>
+    <script src="./chat.js"></script>
   </body>
 </html>
 

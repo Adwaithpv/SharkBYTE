@@ -4,13 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Drug Inventory Dashboard</title>
-
-    <link
-        href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
-        rel="stylesheet"
-    />
+    <title>Medizon - Warehouse Management System</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./chat.css" />
 </head>
 <body>
     <div class="container">
@@ -18,44 +15,37 @@
             <div class="top">
                 <div class="logo">
                     <img src="logo.png" alt="Logo" />
-                    <h2>MEDZON<span class="danger"></span></h2>
-                </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp"> close </span>
+                    <h2>Medi<span class="primary">zon</span></h2>
                 </div>
             </div>
 
             <div class="sidebar">
                 <a href="index.html" class="active">
-                    <span class="material-icons-sharp"> dashboard </span>
+                    <span class="material-icons-sharp">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
                 <a href="inventory.html">
-                    <span class="material-icons-sharp"> dataset </span>
+                    <span class="material-icons-sharp">inventory</span>
                     <h3>Inventory</h3>
                 </a>
                 <a href="orderss.html">
-                    <span class="material-icons-sharp"> receipt_long </span>
+                    <span class="material-icons-sharp">receipt_long</span>
                     <h3>Orders</h3>
                 </a>
                 <a href="reports.html">
-                    <span class="material-icons-sharp"> insights </span>
+                    <span class="material-icons-sharp">analytics</span>
                     <h3>Reports</h3>
                 </a>
                 <a href="notifications.html">
-                    <span class="material-icons-sharp"> mail_outline </span>
-                    <h3>Notifications</h3>
-                </a>
-                <a href="mscbot-main\mscbot\index.html">
-                    <span class="material-icons-sharp"> messenger </span>
-                    <h3>Chat-Bot</h3>
+                    <span class="material-icons-sharp">notifications</span>
+                    <h3>Alerts</h3>
                 </a>
                 <a href="#">
-                    <span class="material-icons-sharp"> settings </span>
+                    <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>
                 <a href="#">
-                    <span class="material-icons-sharp"> logout </span>
+                    <span class="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
             </div>
@@ -63,78 +53,84 @@
 
         <main>
             <h1>Dashboard</h1>
-            <!-- Other dashboard content -->
-            <main>
-                <h1></h1>
-                <div class="insights">
-                    <div class="sales">
-                        <span class="material-icons-sharp"> analytics </span>
-                        <div class="middle">
-                            <div class="left">
-                                <h3>Total Sales</h3>
-                                <h1>-</h1>
-                            </div>
-                            <div class="progress">
-                                <svg></svg>
-                                <div class="number"></div>
-                            </div>
+            
+            <div class="insights">
+                <div class="card">
+                    <span class="material-icons-sharp">inventory</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Stock</h3>
+                            <h1>2,543</h1>
                         </div>
-                        <small class="text-muted"> </small>
                     </div>
-                    <div class="expenses">
-                        <span class="material-icons-sharp"> bar_chart </span>
-                        <div class="middle">
-                            <div class="left">
-                                <h3>Expenditure</h3>
-                                <h1>-</h1>
-                            </div>
-                            <div class="progress">
-                                <svg></svg>
-                                <div class="number"></div>
-                            </div>
-                        </div>
-                        <small class="text-muted"></small>
-                    </div>
-                    <div class="income">
-                        <span class="material-icons-sharp"> stacked_line_chart </span>
-                        <div class="middle">
-                            <div class="left">
-                                <h3>Total Profit</h3>
-                                <h1>-</h1>
-                            </div>
-                            <div class="progress">
-                                <svg></svg>
-                                <div class="number"></div>
-                            </div>
-                        </div>
-                        <small class="text-muted"></small>
-                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
                 </div>
 
-            <div class="recent-orders">
+                <div class="card">
+                    <span class="material-icons-sharp">local_shipping</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Pending Orders</h3>
+                            <h1>45</h1>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+
+                <div class="card">
+                    <span class="material-icons-sharp">warning</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Low Stock Items</h3>
+                            <h1>12</h1>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+            </div>
+
+            <div class="recent-orders card">
                 <h2>Recent Orders</h2>
-                <table id="recent-orders--table">
+                <table>
                     <thead>
                         <tr>
-                            <th>Organisation</th>
-                            <th>Order Number</th>
-                            <th>Payment</th>
+                            <th>Order ID</th>
+                            <th>Customer</th>
                             <th>Status</th>
+                            <th>Date</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Data will be inserted here by JavaScript -->
+                        <tr>
+                            <td>#ORD-001</td>
+                            <td>John Doe</td>
+                            <td class="success">Completed</td>
+                            <td>2024-04-12</td>
+                            <td><button class="btn btn-primary">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-002</td>
+                            <td>Jane Smith</td>
+                            <td class="warning">Processing</td>
+                            <td>2024-04-12</td>
+                            <td><button class="btn btn-primary">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-003</td>
+                            <td>Mike Johnson</td>
+                            <td class="danger">Pending</td>
+                            <td>2024-04-11</td>
+                            <td><button class="btn btn-primary">View</button></td>
+                        </tr>
                     </tbody>
                 </table>
-                <!-- Optional link to CSV file -->
-                <a href="data.csv">Show All</a>
+                <a href="#">Show All</a>
             </div>
         </main>
-
-        <!-- Right sidebar content -->
-
     </div>
 
     <script src="./index.js"></script>
+    <script src="./chat.js"></script>
 </body>
 </html>
