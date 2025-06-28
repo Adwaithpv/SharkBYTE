@@ -9,13 +9,13 @@ from langchain_google_genai import GoogleGenerativeAI
 # Define the model function
 def model():
     # Configure the Gemini API
-    genai.configure(api_key="AIzaSyBhi3uOvQOHWbPj_s_D7MqVj-miToPty3o")
+    genai.configure(api_key="")
     
     # Initialize the model using LangChain's Google integration
     llm = GoogleGenerativeAI(
         model="gemini-2.0-flash-lite",  
         temperature=0,
-        google_api_key="AIzaSyBhi3uOvQOHWbPj_s_D7MqVj-miToPty3o"  
+        google_api_key=""  
     )
     return llm
   
